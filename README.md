@@ -10,7 +10,7 @@ A Concourse resource for tracking AMI versions
 
 * `region`: *Required* the AWS region the AMIs are located in.
 
-* `search_options`: A JSON string to filter AMIs, see [supported options](http://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Client.html#describe_images-instance_method).
+* `search_options`: Options to filter AMIs, see [supported options](http://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Client.html#describe_images-instance_method).
 
 ## Example:
 
