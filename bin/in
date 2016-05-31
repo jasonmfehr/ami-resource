@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+if ARGV.length < 1
+	throw "usage: out <destination>"
+end
+destination = ARGV[0]
+
+request = JSON.parse(STDIN.read)
+source = request.fetch("source")
+
+version = source.fetch("version").fetch("ref")
+
+Dir.mkdir(destination)
+File.new(File.join(destination, "version"), "w") do |f|
+	f.write("#{version}\n")
+end
+
+puts JSON.generate({
+	version: source.fetch("version")
+})

@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+STDERR.puts("ERROR not implemented")
+exit -1
