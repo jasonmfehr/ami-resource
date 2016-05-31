@@ -14,6 +14,7 @@ A Concourse resource for tracking AMI versions
 
 ## Example:
 
+```
 - name: windows-ami
   type: ami
   source:
@@ -26,3 +27,5 @@ A Concourse resource for tracking AMI versions
         - {name: "state", values: ["available"]}
       owners:
         - amazon
+
+```
