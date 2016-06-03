@@ -6,18 +6,17 @@ if ARGV.length < 1
 	throw "usage: out <destination>"
 end
 destination = ARGV[0]
-stdin = STDIN.read
 
-STDERR.puts("STDIN: #{stdin}, destination: #{destination}")
+request = JSON.parse(STDIN.read)
+source = request.fetch("source")
 
-request = JSON.parse(stdin)
-version = request.fetch("version").fetch("ref")
+version = source.fetch("version").fetch("ref")
 
-unless Dir.exist?(destination)
-	Dir.mkdir(destination)
-end
+Dir.mkdir(destination)
 File.new(File.join(destination, "version"), "w") do |f|
 	f.write("#{version}\n")
 end
 
-puts JSON.generate({version: {ref: version}})
+puts JSON.generate({
+	version: source.fetch("version")
+})
