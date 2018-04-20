@@ -1,6 +1,6 @@
 # AMI Resource
 
-A Concourse resource for tracking AMI versions
+A Concourse resource for tracking AMI versions.  This is a **get only** resource.
 
 ## Source Configuration
 
