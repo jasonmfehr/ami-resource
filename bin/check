@@ -11,6 +11,7 @@ access_key = source.fetch("access_key_id")
 secret_key = source.fetch("secret_access_key")
 region = source.fetch("region")
 options = source.fetch("search_options")
+allow_no_matches = source.fetch("allow_no_matches", true).to_s
 
 version = nil
 first_request = true
@@ -43,5 +44,10 @@ else
 end
 
 puts JSON.generate(result.map do |image_id|
-	{ref: image_id}
+	if allow_no_matches == "false" and image_id.nil?
+		$stderr.puts "No matching AMIs were found"
+		exit(1)
+	else
+		{ref: image_id}
+	end
 end)

@@ -8,7 +8,11 @@ A Concourse resource for tracking AMI versions
 
 * `secret_access_key`: *Required.* The AWS secret key to use.
 
-* `region`: *Required* the AWS region the AMIs are located in.
+* `region`: *Required.* the AWS region the AMIs are located in.
+
+* `allow_no_matches`: *Optional.* Default `true`.  A boolean that specifies if the check should succeed in the case where no AMI is found that matches the search options.
+  * `true` - Always succeed even if no matching AMI is found.
+  * `false` - Fail if no matching AMI is found.
 
 * `search_options`: Options to filter AMIs, see [supported options](http://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Client.html#describe_images-instance_method).
 
